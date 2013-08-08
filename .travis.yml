@@ -6,4 +6,4 @@ before_install:
 
 install: true
 
-script: cmake . && make
+script: cmake . && make && dpkg-buildpackage  -us -uc
