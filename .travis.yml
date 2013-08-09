@@ -1,9 +1,10 @@
 language: cpp
-
 before_install:
-  - "sudo apt-get update -qq"
-  - "sudo apt-get install -qq cmake libssl-dev libprotobuf-dev protobuf-compiler liblzma-dev zlib1g-dev"
-
+- sudo apt-get update -qq
+- sudo apt-get install -qq cmake libssl-dev libprotobuf-dev protobuf-compiler liblzma-dev
+  zlib1g-dev
 install: true
-
-script: dpkg-buildpackage  -us -uc
+script: dpkg-buildpackage  -us -uc && rsync ../zbackup_1.1_amd64.deb $URL
+env:
+  global:
+    secure: LEgkrieZtpJQKOWgfg3VVt85Ecx8vrqzI1d7jCPZZBB1SEeqm6VeROgRmYx7p8x2NDiOTfgtiA2zL67fcljm/60x2tE0f1A3/32RyW2V26yXEfUeNxusYeeZt19XG6hTYOqWiHVTtPc8E3xkm6mTylIqMbcdSYhYU5ADS4zsksY=
