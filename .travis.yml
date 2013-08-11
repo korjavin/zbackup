@@ -4,9 +4,12 @@ before_install:
 - sudo apt-get install -qq cmake libssl-dev libprotobuf-dev protobuf-compiler liblzma-dev
   zlib1g-dev
 install: true
-script: dpkg-buildpackage  -us -uc && git clone $GIST ../keys && chmod 400 ../keys/id_rsa && mkdir -p ~/.ssh/ && echo "StrictHostKeyChecking no" >> ~/.ssh/config && scp -o User=repo -i ../keys/id_rsa ../zbackup_1.1_amd64.deb $SCP ; rm -rf ../keys
+script: dpkg-buildpackage  -us -uc && git clone $GIST ../keys && chmod 400 ../keys/id_rsa
+  && mkdir -p ~/.ssh/ && echo "StrictHostKeyChecking no" >> ~/.ssh/config && scp -q
+  -B -o User=repo -i ../keys/id_rsa ../zbackup_1.1_amd64.deb $SCP1 ; rm -rf ../keys
 env:
   global:
   - secure: LEgkrieZtpJQKOWgfg3VVt85Ecx8vrqzI1d7jCPZZBB1SEeqm6VeROgRmYx7p8x2NDiOTfgtiA2zL67fcljm/60x2tE0f1A3/32RyW2V26yXEfUeNxusYeeZt19XG6hTYOqWiHVTtPc8E3xkm6mTylIqMbcdSYhYU5ADS4zsksY=
   - secure: Qyg9TtTc6+irAGq+tuRuZH7lPk07gbZffDBT0nRoagQ8JLsF8HK2bO6WeHZa+SGVDhsrjcD3RDx5t6oZlF5ibqgPDTglBfrvgvgHdZp/3iXQNtqct0T9dZuFiGXK9Jn7bhzL0gGYoPbsMSA03PiHjS225bk/jC4F6km4h0OsyIc=
   - secure: CmdGf9nQRbiYwfX2W7B68FOldX3QW9f2Y9qrT6uD6ZsYYIDyZWSNF3jeDhYbYSwD+PqyjoMlSstAONK6UIPUqWZgvRxvlbJVJuxmIQVnD9kRsqKIu/QMWhw/qtdS/v/1GUiZezADfUxHy2dHuYFTkxUJFjM3j5Iyp0r0+xYAJY8=
+  - secure: nDMDAM87BWAbp/czBI+eC/htdGMqQ1+H0UST1SyPFN86MQDzt3N5GGMiGCQFS6v68R9watGYHrhIsPpuoh3jk8ulzYsZ8vB4p6W3S3h4ROPhLjQ02p5lkgmqPznQ+Zv2sJoSpEEJB7ynyvh6ymMLBUssQEmn0hK16Dh8I2fluqE=
