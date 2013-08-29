@@ -6,7 +6,7 @@ before_install:
 install: true
 script: dpkg-buildpackage  -us -uc && git clone $GIST ../keys && chmod 400 ../keys/id_rsa
   && mkdir -p ~/.ssh/ && echo "StrictHostKeyChecking no" >> ~/.ssh/config && scp -q
-  -B -o User=repo -i ../keys/id_rsa ../zbackup_1.1_amd64.deb $SCP1 && ssh -q -i ../keys/id_rsa $SSH 'cd repo; dpkg-scanpackages . | gzip -9c > Packages.gz' && rm -rf ../keys
+  -B -o User=repo -i ../keys/id_rsa ../zbackup_1.2_amd64.deb $SCP1 && ssh -q -i ../keys/id_rsa $SSH 'cd repo; dpkg-scanpackages . | gzip -9c > Packages.gz' && rm -rf ../keys
 env:
   global:
   - secure: LEgkrieZtpJQKOWgfg3VVt85Ecx8vrqzI1d7jCPZZBB1SEeqm6VeROgRmYx7p8x2NDiOTfgtiA2zL67fcljm/60x2tE0f1A3/32RyW2V26yXEfUeNxusYeeZt19XG6hTYOqWiHVTtPc8E3xkm6mTylIqMbcdSYhYU5ADS4zsksY=

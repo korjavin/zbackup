@@ -1,3 +1,9 @@
+zbackup (1.2) unstable; urgency=low
+
+  * Merged from upstream.
+
+ -- Korjavin Ivan <korjavin@gmail.com>  Thu, 29 Aug 2013 17:18:52 +0600
+
 zbackup (1.1) unstable; urgency=low
 
   * Initial Release.
